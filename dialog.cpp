@@ -19,3 +19,10 @@ void Dialog::on_btnCncl_clicked()
 {
     reject();
 }
+
+void Dialog::on_btnCrtAcc_clicked()
+{
+    SignUp w;
+    this->hide();
+    w.exec();
+}

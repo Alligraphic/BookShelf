@@ -2,6 +2,7 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include "signup.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dialog; }
@@ -17,6 +18,8 @@ public:
 
 private slots:
     void on_btnCncl_clicked();
+
+    void on_btnCrtAcc_clicked();
 
 private:
     Ui::Dialog *ui;
