@@ -1,12 +1,3 @@
-#include <iostream>
-using namespace std;
-
-int main()
-{
-
-
-    return 0;
-}
 #ifndef DIALOG_H
 #define DIALOG_H
 
@@ -23,6 +14,9 @@ class Dialog : public QDialog
 public:
     Dialog(QWidget *parent = nullptr);
     ~Dialog();
+
+private slots:
+    void on_btnCncl_clicked();
 
 private:
     Ui::Dialog *ui;

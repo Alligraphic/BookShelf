@@ -1,12 +1,4 @@
-#include <iostream>
-using namespace std;
 
-int main()
-{
-
-
-    return 0;
-}
 #include "dialog.h"
 #include "ui_dialog.h"
 
@@ -22,3 +14,8 @@ Dialog::~Dialog()
     delete ui;
 }
 
+
+void Dialog::on_btnCncl_clicked()
+{
+    reject();
+}
