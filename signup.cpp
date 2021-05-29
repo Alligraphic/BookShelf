@@ -16,7 +16,7 @@ SignUp::~SignUp()
 
 void SignUp::on_btnCncl_clicked()
 {
-    Dialog w;
+    Login w;
     this->hide();
     w.exec();
 }

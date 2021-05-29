@@ -2,25 +2,25 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 
-Dialog::Dialog(QWidget *parent)
+Login::Login(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Dialog)
 {
     ui->setupUi(this);
 }
 
-Dialog::~Dialog()
+Login::~Login()
 {
     delete ui;
 }
 
 
-void Dialog::on_btnCncl_clicked()
+void Login::on_btnCncl_clicked()
 {
     reject();
 }
 
-void Dialog::on_btnCrtAcc_clicked()
+void Login::on_btnCrtAcc_clicked()
 {
     SignUp w;
     this->hide();
