@@ -1,6 +1,8 @@
 #include "dialog.h"
-
 #include <QApplication>
+
+class a
+{};
 
 int main(int argc, char *argv[])
 {

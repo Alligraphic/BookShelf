@@ -5,7 +5,7 @@ using namespace std;
 #define SIGNUP_H
 
 #include <QDialog>
-#include "dialog.h"
+#include "Login.h"
 
 namespace Ui {
 class SignUp;
