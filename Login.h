@@ -3,6 +3,10 @@
 
 #include <QDialog>
 #include "signup.h"
+#include "QMessageBox"
+#include "data.h"
+#include <QSettings>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dialog; }
@@ -13,13 +17,16 @@ class Login : public QDialog
     Q_OBJECT
 
 public:
-    Login(QWidget *parent = nullptr);
+    QList<user>* users;
+    Login(QList<user> *users,QWidget *parent = nullptr);
     ~Login();
 
 private slots:
     void on_btnCncl_clicked();
 
     void on_btnCrtAcc_clicked();
+
+    void login();
 
 private:
     Ui::Dialog *ui;

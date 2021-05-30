@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>404</width>
-    <height>196</height>
+    <width>386</width>
+    <height>164</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -106,7 +106,14 @@
         <widget class="QLineEdit" name="lneUsrnm"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="lnePass"/>
+        <widget class="QLineEdit" name="lnePass">
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -127,6 +134,19 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item>
       <widget class="QPushButton" name="btnCncl">
        <property name="text">

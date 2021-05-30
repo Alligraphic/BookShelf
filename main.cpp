@@ -1,13 +1,15 @@
-#include "dialog.h"
+#include "Login.h"
+#include <iostream>
 #include <QApplication>
+#include <QSettings>
+#include <QVariant>
 
-class a
-{};
+QList<user> users;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Login w;
+    Login w(&users);
     w.show();
     return a.exec();
 }
