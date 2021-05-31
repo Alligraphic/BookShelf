@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include "data.h"
 #include "addbook.h"
-#include "deletebooks.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,7 +20,6 @@ public:
 
 private slots:
     void openDia();
-    void deleteDia();
 private:
     QList<user> *users;
     QList<book> *books;
