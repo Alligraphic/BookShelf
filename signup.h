@@ -17,9 +17,8 @@ class SignUp : public QDialog
     Q_OBJECT
 
 public:
-    explicit SignUp(QList<user>* users, QWidget *parent = nullptr);
-    QList<user>* users;
-    void save();
+    explicit SignUp(QList<user>* users, QList<book>* books, QWidget *parent = nullptr);
+
     ~SignUp();
 
 private slots:
@@ -30,6 +29,9 @@ private slots:
     void on_btnSgnup_clicked();
 
 private:
+    QList<user>* users;
+    QList<book>* books;
+    void save();
     Ui::SignUp *ui;
 };
 

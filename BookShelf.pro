@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     Login.cpp \
+    addbook.cpp \
     data.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -17,12 +18,14 @@ SOURCES += \
 
 HEADERS += \
     Login.h \
+    addbook.h \
     data.h \
     mainwindow.h \
     signup.h
 
 FORMS += \
     Login.ui \
+    addbook.ui \
     mainwindow.ui \
     signup.ui
 

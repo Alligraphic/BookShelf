@@ -13,5 +13,15 @@ public:
     bool isMatched(QString usrnm, QString pass);
 };
 
+class book
+{
+public:
+    QString bookname;
+    QString athor;
+    QString release;
+    QString group;
+    book();
+};
+
 
 #endif // DATA_H
