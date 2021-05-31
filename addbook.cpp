@@ -26,14 +26,15 @@ void addBook::save()
     tmp.group = ui->comboGroup->currentText();
     books->append(tmp);
     QSettings Books("Alireza", "BookShelf");
-    int size = Books.beginReadArray("books");
     Books.beginWriteArray("books");
-    Books.setArrayIndex(size);
-    Books.setValue("bookname", books->at(size).bookname);
-    Books.setValue("athor", books->at(size).athor);
-    Books.setValue("release", books->at(size).release);
-    Books.setValue("group", books->at(size).group);
-    Books.endArray();
+    for (int i = 0 ; i < books->count();i++)
+    {
+        Books.setArrayIndex(i);
+        Books.setValue("bookname", books->at(i).bookname);
+        Books.setValue("athor", books->at(i).athor);
+        Books.setValue("release", books->at(i).release);
+        Books.setValue("group", books->at(i).group);
+    }Books.endArray();
     QMessageBox::information(this, "Saved", "Book added successfully.");
     this->accept();
 }

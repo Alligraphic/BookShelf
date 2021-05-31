@@ -9,9 +9,8 @@ DeleteBooks::DeleteBooks(QList<book> * books, QWidget *parent) :
     ui->setupUi(this);
     this->setFixedSize(this->size());
     this->setWindowTitle("Delete book");
-    loadCombo();
-
     this->books = books;
+    loadCombo();
 }
 
 DeleteBooks::~DeleteBooks()
@@ -21,8 +20,7 @@ DeleteBooks::~DeleteBooks()
 
 void DeleteBooks::loadCombo()
 {
-//    ui->comboDelete->clear();
-//    for (int i = 0 ; i < books->count() ; i++)
-    qDebug() << books->at(0).bookname;
-        ui->comboDelete->addItem(books->at(1).bookname);
+    ui->comboDelete->clear();
+    for (int i = 0 ; i < books->count() ; i++)
+        ui->comboDelete->addItem(books->at(i).bookname);
 }
