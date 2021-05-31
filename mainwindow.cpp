@@ -37,6 +37,16 @@ void MainWindow::openDia()
 {
     addBook w(books);
     w.exec();
+<<<<<<< Updated upstream
+=======
+
+}
+
+void MainWindow::deleteDia()
+{
+    DeleteBooks w(books);
+    w.exec();
+>>>>>>> Stashed changes
 }
 
 void MainWindow::loadTable()
