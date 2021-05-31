@@ -14,39 +14,35 @@ MainWindow::MainWindow(QList<user> *users, QList<book> * books, QWidget *parent)
     this->users = users;
     this->books = books;
     connect(ui->actionAdd_book, &QAction::triggered, this, &MainWindow::openDia);
+    connect(ui->actionRemove_book, &QAction::triggered, this, &MainWindow::deleteDia);
 
     loadTable();
 }
 MainWindow::~MainWindow()
 {
     delete ui;
-    for (int i = 0 ; i < books->count() ; i++)
-    {
-
-        delete titles[i];
-        delete athors[i];
-        delete releases[i];
-        delete groups[i];
-    }
-    titles.clear();
-    releases.clear();
-    groups.clear();
+    destroyItems();
 }
 
 void MainWindow::openDia()
 {
     addBook w(books);
     w.exec();
-<<<<<<< Updated upstream
-=======
-
+    updateTable();
 }
 
 void MainWindow::deleteDia()
 {
     DeleteBooks w(books);
     w.exec();
->>>>>>> Stashed changes
+    updateTable();
+}
+
+void MainWindow::updateTable()
+{
+    ui->tableWidget->clearContents();
+    destroyItems();
+    loadTable();
 }
 
 void MainWindow::loadTable()
@@ -78,4 +74,20 @@ void MainWindow::loadTable()
         ui->tableWidget->setItem(i, 2, releases[i]);
         ui->tableWidget->setItem(i, 3, groups[i]);
     }
+}
+
+void MainWindow::destroyItems()
+{
+    for (int i = 0 ; i < books->count()-1 ; i++)
+    {
+
+        delete titles[i];
+        delete athors[i];
+        delete releases[i];
+        delete groups[i];
+    }
+    titles.clear();
+    athors.clear();
+    releases.clear();
+    groups.clear();
 }

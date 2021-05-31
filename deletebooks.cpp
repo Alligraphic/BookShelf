@@ -22,5 +22,5 @@ void DeleteBooks::loadCombo()
 {
     ui->comboDelete->clear();
     for (int i = 0 ; i < books->count() ; i++)
-        ui->comboDelete->addItem(books->at(1).bookname);
+        ui->comboDelete->addItem(books->at(i).bookname);
 }

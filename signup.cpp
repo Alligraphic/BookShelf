@@ -19,12 +19,13 @@ SignUp::SignUp(QList<user>* users, QList<book> * books, QWidget *parent) :
 void SignUp::save()
 {
     QSettings usrs("Alireza", "BookShelf");
-    int i = usrs.beginReadArray("users");
     usrs.beginWriteArray("users");
-    usrs.setArrayIndex(i);
-    usrs.setValue("username", users->at(i).usrnm);
-    usrs.setValue("pass", users->at(i).pass);
-    usrs.endArray();
+    for (int i = 0 ; i < users->count(); i++)
+    {
+        usrs.setArrayIndex(i);
+        usrs.setValue("username", users->at(i).usrnm);
+        usrs.setValue("pass", users->at(i).pass);
+    }usrs.endArray();
 }
 
 SignUp::~SignUp()

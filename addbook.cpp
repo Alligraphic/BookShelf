@@ -27,15 +27,16 @@ void addBook::save()
     books->append(tmp);
     QSettings Books("Alireza", "BookShelf");
     Books.beginWriteArray("books");
-    for (int i = 0 ; i < books->count(); i++)
+    for (int i = 0 ; i < books->count();i++)
+
     {
         Books.setArrayIndex(i);
         Books.setValue("bookname", books->at(i).bookname);
         Books.setValue("athor", books->at(i).athor);
         Books.setValue("release", books->at(i).release);
         Books.setValue("group", books->at(i).group);
-    }
-    Books.endArray();
+    }Books.endArray();
+
     QMessageBox::information(this, "Saved", "Book added successfully.");
     this->accept();
 }
