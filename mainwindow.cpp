@@ -38,7 +38,6 @@ void MainWindow::openDia()
 {
     addBook w(books);
     w.exec();
-    loadTable();
 }
 
 void MainWindow::deleteDia()
