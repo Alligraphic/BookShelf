@@ -14,6 +14,7 @@ MainWindow::MainWindow(QList<user> *users, QList<book> * books, QWidget *parent)
     this->users = users;
     this->books = books;
     connect(ui->actionAdd_book, &QAction::triggered, this, &MainWindow::openDia);
+    connect(ui->actionRemove_book, &QAction::triggered, this, &MainWindow::deleteDia);
 
     loadTable();
 }
@@ -36,6 +37,13 @@ MainWindow::~MainWindow()
 void MainWindow::openDia()
 {
     addBook w(books);
+    w.exec();
+    loadTable();
+}
+
+void MainWindow::deleteDia()
+{
+    DeleteBooks w(books);
     w.exec();
 }
 
