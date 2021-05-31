@@ -22,10 +22,12 @@ public:
 private slots:
     void openDia();
     void deleteDia();
+    void updateTable();
 private:
     QList<user> *users;
     QList<book> *books;
     void loadTable();
+    void destroyItems();
     Ui::MainWindow *ui;
 };
 
