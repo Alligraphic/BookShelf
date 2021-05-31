@@ -6,3 +6,8 @@ bool user::isMatched(QString ursnm, QString pass)
         return true;
     return false;
 }
+
+book::book()
+{
+    this->release = "";
+}

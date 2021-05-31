@@ -1,30 +1,20 @@
 #include "Login.h"
 #include "ui_dialog.h"
 
-Login::Login(QList<user>* users, QWidget *parent)
+Login::Login(QList<user>* users, QList<book> *books, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Dialog)
 {
 
     ui->setupUi(this);
     this->setFixedSize(this->size());
-
-    ui->lnePass->setEchoMode(QLineEdit::Password);
-
+    this->setWindowTitle("Login");
     this->users = users;
+    this->books = books;
+    ui->lnePass->setEchoMode(QLineEdit::Password);
     connect(ui->btnLogin, &QPushButton::clicked , this, &Login::login);
-    QSettings usrs("Alireza", "BookShelf");
-    int size =usrs.beginReadArray("users");
-    qDebug() << size;
-    for ( int i = 0 ; i < size ; i++)
-    {
-        usrs.setArrayIndex(i);
-        user tmp;
-        tmp.usrnm = usrs.value("username","").toString();
-        tmp.pass = usrs.value("pass","").toString();
-        users->append(tmp);
-    }
-
+    ui->lneUsrnm->setText(users->at(0).usrnm);
+    ui->lnePass->setText(users->at(0).pass);
 }
 
 Login::~Login()
@@ -39,7 +29,7 @@ void Login::on_btnCncl_clicked()
 
 void Login::on_btnCrtAcc_clicked()
 {
-    SignUp w(this->users);
+    SignUp w(this->users, this->books);
     this->hide();
     w.exec();
 }
@@ -51,7 +41,10 @@ void Login::login()
         if ((*users)[i].isMatched(ui->lneUsrnm->text(), ui->lnePass->text()))
         {
             cp = true;
-
+            MainWindow * w = new MainWindow(this->users, this->books);
+            this->hide();
+            w->show();
+//            delete w;
             break;
         }
     if (!cp)
