@@ -8,6 +8,7 @@
 #include "addbook.h"
 #include "deletebooks.h"
 #include "lendbook.h"
+#include "editbook.h"
 
 namespace Ui {
 class MainWindow;
@@ -38,6 +39,8 @@ private slots:
     void on_btnLendBook_clicked();
 
     void on_btnReturn_clicked();
+
+    void on_btrEdit_clicked();
 
 private:
     QList<user> *users;

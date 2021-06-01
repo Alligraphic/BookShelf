@@ -133,6 +133,11 @@
              <string>Sci-fic</string>
             </property>
            </item>
+           <item>
+            <property name="text">
+             <string>Science</string>
+            </property>
+           </item>
           </widget>
          </item>
         </layout>

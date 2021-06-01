@@ -206,9 +206,11 @@ QString MainWindow::getOption(QObject *obj)
 void MainWindow::createSrchList(QString group, QString title)
 {
     resBooks.clear();
+    if (group == "All")
+        group = "";
     for (int i = 0 ; i < books->count() ; i++)
     {
-        if (books->at(i).group == group && books->at(i).bookname.contains(title))
+        if (books->at(i).group.startsWith(group) && books->at(i).bookname.contains(title))
         {
             resBooks.append(books->at(i));
         }
@@ -245,7 +247,6 @@ void MainWindow::on_btnAddBook_clicked()
 void MainWindow::on_lneSrch_textEdited(const QString &arg1)
 {
     QString selectedGrp = getOption(ui->grpSearch);
-
     createSrchList(selectedGrp, arg1);
     qDebug() << arg1;
     updateTableWith(&resBooks);
@@ -291,5 +292,12 @@ void MainWindow::on_btnReturn_clicked()
     }Books.endArray();
 
     QMessageBox::information(this, "Returned", "Book returned successfully.");
+    updateTable();
+}
+
+void MainWindow::on_btrEdit_clicked()
+{
+    editBook w(books, resBooks.at(ui->tableWidget->currentRow()).code);
+    w.exec();
     updateTable();
 }

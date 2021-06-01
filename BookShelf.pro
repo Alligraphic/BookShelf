@@ -13,6 +13,7 @@ SOURCES += \
     addbook.cpp \
     data.cpp \
     deletebooks.cpp \
+    editbook.cpp \
     lendbook.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     addbook.h \
     data.h \
     deletebooks.h \
+    editbook.h \
     lendbook.h \
     mainwindow.h \
     signup.h
@@ -31,6 +33,7 @@ FORMS += \
     Login.ui \
     addbook.ui \
     deletebooks.ui \
+    editbook.ui \
     lendbook.ui \
     mainwindow.ui \
     signup.ui

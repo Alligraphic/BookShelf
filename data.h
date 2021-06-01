@@ -9,7 +9,6 @@ class user
 public:
     QString usrnm;
     QString pass;
-
     bool isMatched(QString usrnm, QString pass);
 };
 
