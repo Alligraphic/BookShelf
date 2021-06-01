@@ -7,6 +7,7 @@
 #include "data.h"
 #include "addbook.h"
 #include "deletebooks.h"
+#include "lendbook.h"
 
 namespace Ui {
 class MainWindow;
@@ -33,6 +34,10 @@ private slots:
     void on_btnDeleteBook_clicked();
 
     void on_btnSrch_clicked();
+
+    void on_btnLendBook_clicked();
+
+    void on_btnReturn_clicked();
 
 private:
     QList<user> *users;

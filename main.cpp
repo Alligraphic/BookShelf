@@ -16,7 +16,7 @@ void loadBooks()
     {
         Books.setArrayIndex(i);
         book tmp;
-        tmp.bookname = Books.value("bookname","").toString();
+        tmp.bookname = Books.value("bookname","").toString();//QVariant.to
         tmp.athor = Books.value("athor","").toString();
         tmp.release = Books.value("release","").toString();
         tmp.group = Books.value("group","").toString();

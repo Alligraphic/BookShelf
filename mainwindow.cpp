@@ -17,6 +17,7 @@ MainWindow::MainWindow(QList<user> *users, QList<book> * books, user * current, 
     ui->setupUi(this);
     this->users = users;
     this->books = books;
+    resBooks = *books;
     this->current = current;
     connect(ui->actionAdd_book, &QAction::triggered, this, &MainWindow::openDia);
     connect(ui->actionRemove_book, &QAction::triggered, this, &MainWindow::deleteDia);
@@ -40,6 +41,7 @@ void MainWindow::openDia()
 {
     addBook w(books);
     w.exec();
+    resBooks = *books;
     updateTable();
 }
 
@@ -47,6 +49,7 @@ void MainWindow::deleteDia()
 {
     DeleteBooks w(books);
     w.exec();
+    resBooks = *books;
     updateTable();
 }
 
@@ -251,9 +254,42 @@ void MainWindow::on_lneSrch_textEdited(const QString &arg1)
 void MainWindow::on_btnDeleteBook_clicked()
 {
     deleteDia();
+    resBooks = *books;
+    updateTable();
 }
 
 void MainWindow::on_btnSrch_clicked()
 {
     on_lneSrch_textEdited(ui->lneSrch->text());
+}
+
+void MainWindow::on_btnLendBook_clicked()
+{
+    qDebug() << ui->tableWidget->currentRow();
+    Lendbook w(books, resBooks.at(ui->tableWidget->currentRow()).code, current);
+    w.exec();
+    updateTable();
+}
+
+void MainWindow::on_btnReturn_clicked()
+{
+    (*books)[resBooks.at(ui->tableWidget->currentRow()).code].available = true;
+    (*books)[resBooks.at(ui->tableWidget->currentRow()).code].takenBy = "";
+    QSettings Books("Alireza", "BookShelf");
+    Books.beginWriteArray("books");
+    for (int i = 0 ; i < books->count();i++)
+
+    {
+        Books.setArrayIndex(i);
+        Books.setValue("bookname", books->at(i).bookname);
+        Books.setValue("athor", books->at(i).athor);
+        Books.setValue("release", books->at(i).release);
+        Books.setValue("group", books->at(i).group);
+        Books.setValue("available", books->at(i).available);
+        Books.setValue("taken", books->at(i).takenBy);
+        Books.setValue("code", i);
+    }Books.endArray();
+
+    QMessageBox::information(this, "Returned", "Book returned successfully.");
+    updateTable();
 }

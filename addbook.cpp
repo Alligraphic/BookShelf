@@ -35,7 +35,6 @@ void addBook::save()
     QSettings Books("Alireza", "BookShelf");
     Books.beginWriteArray("books");
     for (int i = 0 ; i < books->count();i++)
-
     {
         Books.setArrayIndex(i);
         Books.setValue("bookname", books->at(i).bookname);
