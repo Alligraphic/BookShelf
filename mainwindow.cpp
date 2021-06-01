@@ -18,7 +18,13 @@ MainWindow::MainWindow(QList<user> *users, QList<book> * books, user * current, 
     this->current = current;
     connect(ui->actionAdd_book, &QAction::triggered, this, &MainWindow::openDia);
     connect(ui->actionRemove_book, &QAction::triggered, this, &MainWindow::deleteDia);
-
+    QPalette pal;
+    QColor gray, red, redBase;
+    gray.setRgb(200,200,200);
+    red.setRgb(170,0,0);
+    pal.setColor(QPalette::Window, gray);
+    pal.setColor(QPalette::Highlight, red);
+    this->setPalette(pal);
     loadTable();
 }
 MainWindow::~MainWindow()
@@ -54,7 +60,9 @@ void MainWindow::loadTable()
 
     for (int i = 0 ; i < books->count() ; i++)
     {
-        QColor red, green;
+        QColor red, green, redbase, greenbase;
+        redbase.setRgb(255,220,220);
+        greenbase.setRgb(220,255,220);
         red.setRgb(170, 0, 0);
         green.setRgb(20, 150, 15);
         QFont font;
@@ -68,13 +76,19 @@ void MainWindow::loadTable()
         QTableWidgetItem *taker = new QTableWidgetItem;
 
         title->setText(books->at(i).bookname);
+        title->setBackgroundColor((books->at(i).available)?greenbase:redbase);
         athor->setText(books->at(i).athor);
+        athor->setBackgroundColor((books->at(i).available)?greenbase:redbase);
         release->setText(books->at(i).release);
+        release->setBackgroundColor((books->at(i).available)?greenbase:redbase);
         group->setText(books->at(i).group);
+        group->setBackgroundColor((books->at(i).available)?greenbase:redbase);
         available->setText((books->at(i).available)?"Yes":"No");
         available->setTextColor((books->at(i).available)?green:red);
+        available->setBackgroundColor((books->at(i).available)?greenbase:redbase);
         available->setFont(font);
         taker->setText(books->at(i).takenBy);
+        taker->setBackgroundColor((books->at(i).available)?greenbase:redbase);
 
         titles.append(title);
         athors.append(athor);

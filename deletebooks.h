@@ -2,6 +2,8 @@
 #define DELETEBOOKS_H
 
 #include <QDialog>
+#include <QSettings>
+#include <QMessageBox>
 #include "data.h"
 
 namespace Ui {
@@ -15,6 +17,11 @@ class DeleteBooks : public QDialog
 public:
     explicit DeleteBooks(QList<book> * books, QWidget *parent = nullptr);
     ~DeleteBooks();
+
+private slots:
+    void on_buttonBox_accepted();
+
+    void on_buttonBox_rejected();
 
 private:
     void loadCombo();

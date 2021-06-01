@@ -1,5 +1,5 @@
 #include "Login.h"
-#include "ui_dialog.h"
+#include "ui_Login.h"
 
 user current;
 
@@ -10,6 +10,13 @@ Login::Login(QList<user>* users, QList<book> *books, QWidget *parent)
 
     ui->setupUi(this);
     this->setFixedSize(this->size());
+    QPalette pal;
+    QColor gray, red;
+    gray.setRgb(200,200,200);
+    red.setRgb(170,0,0);
+    pal.setColor(QPalette::Window, gray);
+    pal.setColor(QPalette::Highlight, red);
+    this->setPalette(pal);
     this->setWindowTitle("Login");
     this->users = users;
     this->books = books;
