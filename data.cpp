@@ -10,4 +10,6 @@ bool user::isMatched(QString ursnm, QString pass)
 book::book()
 {
     this->release = "";
+    this->available = true;
+    this->takenBy = "";
 }

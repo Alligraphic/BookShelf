@@ -15,7 +15,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QList<user> *users, QList<book> * books, QWidget *parent = nullptr);
+    explicit MainWindow(QList<user> *users, QList<book> * books, user * current, QWidget *parent = nullptr);
 
     ~MainWindow();
 
@@ -26,6 +26,7 @@ private slots:
 private:
     QList<user> *users;
     QList<book> *books;
+    user * current;
     void loadTable();
     void destroyItems();
     Ui::MainWindow *ui;

@@ -22,8 +22,8 @@
      <rect>
       <x>140</x>
       <y>100</y>
-      <width>256</width>
-      <height>192</height>
+      <width>651</width>
+      <height>201</height>
      </rect>
     </property>
     <column>
@@ -44,6 +44,16 @@
     <column>
      <property name="text">
       <string>Group</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Available</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Taken by</string>
      </property>
     </column>
    </widget>

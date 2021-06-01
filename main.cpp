@@ -11,6 +11,7 @@ void loadBooks()
 {
     QSettings Books("Alireza", "BookShelf");
     int size = Books.beginReadArray("books");
+    books.clear();
     for (int i = 0 ; i < size ; i++)
     {
         Books.setArrayIndex(i);
@@ -19,6 +20,8 @@ void loadBooks()
         tmp.athor = Books.value("athor","").toString();
         tmp.release = Books.value("release","").toString();
         tmp.group = Books.value("group","").toString();
+        tmp.available = Books.value("available", true).toBool();
+        tmp.takenBy = Books.value("taken","").toString();
         books.append(tmp);
     }
 }

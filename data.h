@@ -20,6 +20,8 @@ public:
     QString athor;
     QString release;
     QString group;
+    bool available;
+    QString takenBy;
     book();
 };
 
