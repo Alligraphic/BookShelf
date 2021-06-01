@@ -55,8 +55,10 @@ void MainWindow::loadTable()
     for (int i = 0 ; i < books->count() ; i++)
     {
         QColor red, green;
-        red.setRgb(255, 0, 0);
-        green.setRgb(0, 255, 0);
+        red.setRgb(170, 0, 0);
+        green.setRgb(20, 150, 15);
+        QFont font;
+        font.setBold(true);
 
         QTableWidgetItem *title = new QTableWidgetItem;
         QTableWidgetItem *athor = new QTableWidgetItem;
@@ -71,6 +73,7 @@ void MainWindow::loadTable()
         group->setText(books->at(i).group);
         available->setText((books->at(i).available)?"Yes":"No");
         available->setTextColor((books->at(i).available)?green:red);
+        available->setFont(font);
         taker->setText(books->at(i).takenBy);
 
         titles.append(title);
