@@ -22,6 +22,7 @@ void loadBooks()
         tmp.group = Books.value("group","").toString();
         tmp.available = Books.value("available", true).toBool();
         tmp.takenBy = Books.value("taken","").toString();
+        tmp.code = Books.value("code", -1).toInt();
         books.append(tmp);
     }
 }

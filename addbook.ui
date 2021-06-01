@@ -70,7 +70,67 @@
            </item>
            <item>
             <property name="text">
+             <string>Biography</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Business</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Children</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dictionary</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>English literature</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Fiction</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>History</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Medicine</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Music</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
              <string>Novel</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Persian literature</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Religious</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Sci-fic</string>
             </property>
            </item>
           </widget>

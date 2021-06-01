@@ -44,6 +44,7 @@ void addBook::save()
         Books.setValue("group", books->at(i).group);
         Books.setValue("available", books->at(i).available);
         Books.setValue("taken", books->at(i).takenBy);
+        Books.setValue("code", i);
     }Books.endArray();
 
     QMessageBox::information(this, "Saved", "Book added successfully.");

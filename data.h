@@ -22,6 +22,7 @@ public:
     QString group;
     bool available;
     QString takenBy;
+    int code;
     book();
 };
 
